@@ -1,3 +1,3 @@
-module.exports.home = (req, res) => {
-    res.send("<h1>Welcome to the home page</h1>")
-}
+module.exports.home = ("/", (req, res) => {
+    res.render('pages/home')
+})
