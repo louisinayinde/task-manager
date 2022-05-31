@@ -1,0 +1,32 @@
+/* ---- INIT ---- */
+
+:root {
+    --primary-color: #edf2f8;
+    --secondary-color: #c5c3bf;
+    --black-color: #030303;
+    --white-color: #ffffff;
+    --green-color: #397367c;
+    --light-green-color: #5DA399;
+    --blue-color: #42858C;
+    --light-blue-color: #63CCCA;
+    --font-thin : 'Sora', 'sans-serif';
+}
+
+html, body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    background: url("https://www.freepik.com/vectors/watercolor-mountain");
+}
+
+/* ---- HEAD ---- */

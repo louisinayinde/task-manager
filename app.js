@@ -1,22 +1,14 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 
 const path = require('path')
-
-
-// mongoose
-mongoose.connect("mongodb://localhost/todo_express", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
 
 app.use(express.urlencoded({ extended: true }))
 
 
 // dossier public pour css et asset
 app.use(express.static(path.join(__dirname,'public')))
-
+require("./controller/mongoose_init")
 
 // view engine EJS
 app.set('view engine', 'ejs')

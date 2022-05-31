@@ -1,8 +1,12 @@
 const mongoose = require ("mongoose")
 
-const TOdoSchema = new mongoose.Schema({
-    todo: {
-        type : TimeRanges, 
+const TodoSchema = new mongoose.Schema({
+    title: {
+        type : String, 
+        required: true
+    },
+    content: {
+        type : String, 
         required: true
     },
 })
