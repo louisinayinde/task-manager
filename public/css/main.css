@@ -18,15 +18,64 @@ html, body{
     margin: 0;
     scroll-behavior: smooth;
     height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
 body{
     display: flex;
     flex-direction: column;
-    height: 100%;
-
-    background: url("https://www.freepik.com/vectors/watercolor-mountain");
 }
 
-/* ---- HEAD ---- */
+.container {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(178, 204, 255, 0.52), rgba(5, 24, 99, 0.73)),
+    url("../asset/photo.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- HEADER ---- */
+.header {
+    display : flex;
+    height: 20%;
+    width:100%;
+    margin-top: 2rem;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.head__nav-title {
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---- BODY ---- */
+.scrollable {
+    display : flex;
+    height: 100%;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+
+}
+
+/* ---- FOOTER ---- */
+.footer {
+    height: 10%;
+    width:100%;
+    padding : auto;
+    text-align: center;
+}
+
+.footer__content{
+    height: 100%;
+    width: 100%;
+}

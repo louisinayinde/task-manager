@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="css/main.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;300;500;800&display=swap" rel="stylesheet">
-</head>
 <body>
-    <h1>Welcome to the Home page</h1>
+    <div class="body__box">
+        <div class="body__box-form">
+            <form action='#' method="POST" class="body__box-item">
+                <input type="text" name="newItem" placeholder="Add a todo">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="body__box-display">
+            <div class="body__box-item">
+                <input type="checkbox">
+                <p>ITEM</p>
+                <div class="box-icon"> X </div>
+            </div>
+        </div>
+        <div class="body__box-order">
+            <div class="p-active p-text">item left</div>
+            <div class="p-text">All</div>
+            <div class="p-text">Active</div>
+            <div class="p-text">completed</div>
+            <div class="p-text">Clear Completed</div>
+        </div>
+    </div>
 </body>
-</html>
