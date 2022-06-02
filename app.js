@@ -8,6 +8,8 @@ app.use(express.urlencoded({ extended: true }))
 
 // dossier public pour css et asset
 app.use(express.static(path.join(__dirname,'public')))
+
+// mongoose
 require("./controller/mongoose_init")
 
 // view engine EJS
@@ -26,6 +28,9 @@ app.set('layout', '../views/layouts/layouts')
 
 const homeRouter = require('./routes/homeRoute')
 app.use('/', homeRouter)
+
+const taskRouter = require('./routes/todoRoute')
+app.use('/todo', taskRouter)
 
 app.get('*', (req, res) => {
     res.redirect('/')
