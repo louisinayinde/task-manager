@@ -2,12 +2,16 @@ const express = require('express')
 const app = express()
 
 const path = require('path')
+const notFound = require('./middleware/notFound')
+const asyncWrapper = require('./middleware/async')
+const errorHandler = require('./middleware/errorHandler')
 
 app.use(express.urlencoded({ extended: true }))
 
 
 // dossier public pour css et asset
 app.use(express.static(path.join(__dirname,'public')))
+app.use(express.json())
 
 // mongoose
 require("./controller/mongoose_init")
@@ -29,8 +33,11 @@ app.set('layout', '../views/layouts/layouts')
 const homeRouter = require('./routes/homeRoute')
 app.use('/', homeRouter)
 
-const taskRouter = require('./routes/todoRoute')
-app.use('/todo', taskRouter)
+const todoRouter = require('./routes/todoRoute')
+app.use('/todo', todoRouter)
+
+app.use(notFound)
+app.use(errorHandler)
 
 app.get('*', (req, res) => {
     res.redirect('/')
