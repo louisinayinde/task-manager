@@ -1,12 +1,7 @@
 const mongoose = require ("mongoose")
 
 const TodoSchema = new mongoose.Schema({
-    title: {
-        type : String, 
-        required: true,
-        maxlength:[50, 'name can not be more than 50 characters']
-    },
-    content: {
+    description: {
         type : String, 
         required: true
     },
@@ -16,4 +11,4 @@ const TodoSchema = new mongoose.Schema({
     }
 })
 
-module.exports = new mongoose.model("Todo", TodoSchema)
+module.exports = new mongoose.model("Todo", TodoSchema) 

@@ -7,11 +7,11 @@ require('dotenv').config({ path: './.env'} ) ;
 const user = process.env.MONGO_USER ;
 const pwd = process.env.MONGO_PWD ;
 
-//const db_name = 'todo_express';
+const db_name = 'todoExpress';
 
 // mongoose
 
-const mongoDB = `mongodb://${user}:${pwd}@cluster0-shard-00-00.wnd9u.mongodb.net:27017,cluster0-shard-00-01.wnd9u.mongodb.net:27017,cluster0-shard-00-02.wnd9u.mongodb.net:27017/?ssl=true&replicaSet=atlas-y8i8l4-shard-0&authSource=admin&retryWrites=true&w=majority`
+const mongoDB = `mongodb+srv://${user}:${pwd}@cluster0.wnd9u.mongodb.net/${db_name}?retryWrites=true&w=majority`
 
 mongoose.connect(mongoDB, {
     useNewUrlParser: true,

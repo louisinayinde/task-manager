@@ -3,7 +3,6 @@ const app = express()
 
 const path = require('path')
 const notFound = require('./middleware/notFound')
-const asyncWrapper = require('./middleware/async')
 const errorHandler = require('./middleware/errorHandler')
 
 app.use(express.urlencoded({ extended: true }))
@@ -29,9 +28,6 @@ app.set('layout', '../views/layouts/layouts')
 
 
 // ----- ROUTES -----
-
-const homeRouter = require('./routes/homeRoute')
-app.use('/', homeRouter)
 
 const todoRouter = require('./routes/todoRoute')
 app.use('/todo', todoRouter)
