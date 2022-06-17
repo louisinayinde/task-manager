@@ -2,26 +2,27 @@
 <body>
     <div class="body__box">
         <div class="body__box-form">
-            <form action='/todo/createTodo' method="POST">
-                <label for="name">Description :</label>
+            <form action='/todo/createTodo' method="POST" autocomplete="off">
+                <label for="name" class="body__box-form-label">Description :</label>
                 <div class="form-desc-button">
                     <div class="form-input">
-                        <input type="text" name="description" placeholder="What do you have planned?">
+                        <input autocomplete="off" type="text" name="description" placeholder="What do you have planned?" class="body__box-form-input">
     
                     </div>
                     <div class="form-button">
-                        <button type="submit">Add</button>
+                        <button type="submit" class="btn body__box-form-button">Add</button>
                     </div>
                 </div>
                 
             </form>
         </div>
-        <div class="body__box-filter">
-            <button class="p-active p-text button-filter">All</button>
-            <button class="p-text button-filter">Active</button>
-            <button class="p-text button-filter">completed</button>
-            <button class="p-text button-filter">item left</button>
-        </div>
+    </div>
+
+    <div class="body__box-filter">
+        <button class="btn-active btn">All</button>
+        <button class="btn-text btn">Active</button>
+        <button class="btn-text btn">completed</button>
+        <button class="btn-text btn">item left</button>
     </div>
 
     <div class="body__box_two">

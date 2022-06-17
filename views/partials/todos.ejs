@@ -3,30 +3,43 @@
     <div class="body__box-content-item">
 
         <% if(!todo.completed) { %> 
-            <p><%= todo.description  %>  </p>
+            <input type="text" class="text" value="<%= todo.description  %>" readonly="readonly"/>
 
-            <a href="#" class="button-edit">
-                <img src="asset/edit.png" class="img-edit">
-            </a>
+            <div class="btn btn-edit">
+                <a href="#">
+                    <img src="asset/edit.png" class="img-edit">
+                </a>
+            </div>
             
-            <a href="#" class="button-not-done">
-                <img src="asset/cancel.png" class="#">
-            </a>
+            <div class="btn btn-not-done">
+                <a href="#">
+                    <img src="asset/cancel.png" class="#">
+                </a>
+            </div>
+
 
         <% } else { %>
-            <p class="todo-completed"><%= todo.description  %>  </p>
+            <input type="text" class="text" value="<%= todo.description  %>" readonly="readonly"/>
 
-            <a href="#" class="button-edit">
-                <img src="asset/edit.png" class="img-edit">
-            </a>
-            <a href="#" class="button-completed">
-                <img src="asset/done.png" class="#">
-            </a>
+            <div class="btn btn-edit">
+                <a href="#">
+                    <img src="asset/edit.png" class="img-edit">
+                </a>
+            </div>
+
+            <div class="btn btn-completed">
+                <a href="#">
+                    <img src="asset/done.png" class="#">
+                </a>
+            </div>
         <% } %> 
 
-        <a href="/todo/delete/<%= todo.id%>" class="button-x">
-            <img src="asset/delete.png" class="#">
-        </a>
+        <div class="btn btn-x">
+            <a href="/todo/delete/<%= todo.id%>">
+                <img src="asset/delete.png" class="#">
+            </a>        
+        </div>
+
     </div>
 </div>
 

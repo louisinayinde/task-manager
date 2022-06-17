@@ -80,22 +80,22 @@ const deleteTodo = async (req, res) => {
 
 
 
-// // UPDATE A TODO
-// const updateTodo = asyncWrapper( async (req, res) => {
-//     try {
-//         const {id:todoID} = req.params
-//         const todo = await Todo.findOneAndUpdate({_id: todoID}, req.body, {
-//             new: true, 
-//             runValidators: true,
-//         })
-//         if(!todo){
-//             return next(createCustomError(`No todo with id : ${todoID}`, 404))
-//         }
-//         res.render('pages/home', { day: date.getDate(), todos }) ;
-//     } catch (error) {
-//         res.status(400).send(error)
-//     }
-// })
+// UPDATE A TODO
+const updateTodo =  async (req, res) => {
+    try {
+        const {id:todoID} = req.params
+        const todo = await Todo.findOneAndUpdate({_id: todoID}, req.body, {
+            new: true, 
+            runValidators: true,
+        })
+        if(!todo){
+            return next(createCustomError(`No todo with id : ${todoID}`, 404))
+        }
+        res.render('pages/home', { day: date.getDate(), todos }) ;
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
 
 
 
