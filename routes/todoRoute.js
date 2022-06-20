@@ -6,12 +6,11 @@ const todoController = require('../controller/todoController')
 
 
 router.get('/', todoController.home)
-//router.get('/editForm', todoController.editForm)
-// router.get('/', todoController.getAllTodos)
-router.post('/createTodo', todoController.createTodo)
+router.get('/completePage', todoController.completePage)
+router.get('/itemLeft', todoController.itemLeft)
 
-// router.get('/:id', todoController.getTodo)
-// router.get('/:id', todoController.updateTodo)
+router.post('/createTodo', todoController.createTodo)
+router.post('/updateTodo/:id', todoController.updateTodo)
 router.get('/delete/:id', todoController.deleteTodo)
 
 // patch = update

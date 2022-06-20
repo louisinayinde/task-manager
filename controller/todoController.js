@@ -6,8 +6,26 @@ const date = require('../controller/date')
 
 const home = async (req, res) => {
     try {
-        const todos =  await Todo.find({})
+        const todos =  await Todo.find({}).sort("completed")
         res.render('pages/home', { day: date.getDate(), todos }) ;
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+const completePage = async (req, res) => {
+    try {
+        const todos =  await Todo.find({completed : true})
+        res.render('pages/completePage', { day: date.getDate(), todos }) ;
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+const itemLeft = async (req, res) => {
+    try {
+        const todos =  await Todo.find({completed : false})
+        res.render('pages/itemLeft', { day: date.getDate(), todos }) ;
     } catch (error) {
         res.status(400).send(error)
     }
@@ -29,39 +47,6 @@ const createTodo = async (req, res) => {
     
 }
 
-// const editForm = async (req, res) => {
-//     let edit = true
-//     try {
-//         const todos =  await Todo.find({})
-//         res.render('pages/home', { day: date.getDate(), todos, edit }) ;
-//     } catch (error) {
-//         res.status(400).send(error)
-//     }
-// }
-
-
-
-// // CREATE ONE TODO
-// const createTodo = asyncWrapper (async (req, res) => {
-//     const todo = await Todo.create(req.body)
-//     res.status(200).json({todo})
-// })
-
-
-// // GET ONE TODO
-// const getTodo = asyncWrapper (async (req, res, next) => {
-//     const {id: todoID} = req.params
-//     const todo = await Todo.findOne({_id: todoID})
-
-//     // if id doesn't match any todo
-//     if(!todo){
-//         return next(createCustomError(`No todo with id : ${todoID}`, 404))
-//         // 404 = not found
-//     }
-//     res.status(200).json({ todo})
-// })
-
-
 // DELETE ONE TODOS
 const deleteTodo = async (req, res) => {
     try {
@@ -78,20 +63,16 @@ const deleteTodo = async (req, res) => {
 }
 
 
-
-
 // UPDATE A TODO
 const updateTodo =  async (req, res) => {
+    if(req.body.completed == undefined) req.body.completed = false
     try {
         const {id:todoID} = req.params
-        const todo = await Todo.findOneAndUpdate({_id: todoID}, req.body, {
-            new: true, 
-            runValidators: true,
-        })
+        const todo = await Todo.findByIdAndUpdate(todoID, req.body)
         if(!todo){
             return next(createCustomError(`No todo with id : ${todoID}`, 404))
         }
-        res.render('pages/home', { day: date.getDate(), todos }) ;
+        res.redirect('/todo')
     } catch (error) {
         res.status(400).send(error)
     }
@@ -101,9 +82,9 @@ const updateTodo =  async (req, res) => {
 
 module.exports = {
     home,
-    //editForm,
+    completePage,
+    itemLeft,
     createTodo,
-    // getTodo,
-    // updateTodo,
+    updateTodo,
     deleteTodo
 }

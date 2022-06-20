@@ -1,5 +1,3 @@
-<% error = typeof error !== 'undefined' ? error : undefined %>
-
 <body>
     <div class="body__box">
         <div class="body__box-form">
@@ -19,11 +17,11 @@
         </div>
     </div>
 
-    <!-- <div class="body__box-filter">
+    <div class="body__box-filter">
         <a href="/todo" class="btn-active btn">All</a>
         <a href="/todo/completePage" class="btn-text btn">completed</a>
         <a href="/todo/itemLeft" class="btn-text btn">item left</a>
-    </div> -->
+    </div>
 
     <div class="body__box_two">
         <% todos.forEach((todo) => { %>

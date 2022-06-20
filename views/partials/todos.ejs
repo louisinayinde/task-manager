@@ -3,35 +3,42 @@
     <div class="body__box-content-item">
 
         <% if(!todo.completed) { %> 
-            <input type="text" class="text" value="<%= todo.description  %>" readonly="readonly"/>
 
-            <div class="btn btn-edit">
-                <a href="#">
-                    <img src="asset/edit.png" class="img-edit">
-                </a>
-            </div>
-            
             <div class="btn btn-not-done">
-                <a href="#">
-                    <img src="asset/cancel.png" class="#">
-                </a>
+                <img src="asset/cancel.png" class="#">
             </div>
+
+            <form action="#" method="post" class="body__box-content-form">
+                <p style="display:none" class="id_todo"><%= todo._id  %></p>
+                <input type="checkbox" class="checkbox hidden completed" name="completed" value="false"/>
+                <input type="text" class="body__box-content-item-input" value="<%= todo.description  %>" readonly="readonly" name="description"/>
+
+                <div class="btn btn-edit">
+                    <button type="button" class="img-edit">
+                        <img src="asset/edit.png" >
+                    </button>
+                </div>
+            </form>
 
 
         <% } else { %>
-            <input type="text" class="text" value="<%= todo.description  %>" readonly="readonly"/>
-
-            <div class="btn btn-edit">
-                <a href="#">
-                    <img src="asset/edit.png" class="img-edit">
-                </a>
-            </div>
-
             <div class="btn btn-completed">
-                <a href="#">
-                    <img src="asset/done.png" class="#">
-                </a>
+                <img src="asset/done.png" class="#">
             </div>
+
+            <form id="formTodo" action="#" method="post" class="body__box-content-form">
+                <p style="display:none" class="id_todo"><%= todo._id  %></p>
+                <input type="checkbox" class="checkbox hidden completed" name="completed" checked value="true"/>
+                <input type="text" class="body__box-content-item-input todo-completed" value="<%= todo.description  %>" readonly="readonly" name="description"/>
+
+                <div class="btn btn-edit">
+                    <button type="button" class="img-edit">
+                        <img src="asset/edit.png" >
+                    </button>
+                </div>
+            </form>
+
+            
         <% } %> 
 
         <div class="btn btn-x">
