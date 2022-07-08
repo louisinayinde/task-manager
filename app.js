@@ -34,8 +34,4 @@ app.use('/todo', todoRouter)
 app.use(notFound)
 app.use(errorHandler)
 
-app.get('*', (req, res) => {
-    res.redirect('/')
-})
-
 module.exports = app

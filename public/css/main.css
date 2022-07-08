@@ -226,7 +226,7 @@ img {
 
     color: var(--white-color);
     background-color: transparent;
-    border: 1px solid #6589ff69;
+    border: 1px solid rgba(101, 137, 255, 0.25);
     /* border-radius: 3px; */
     transition: all 0.3s ease-in-out;
 }
