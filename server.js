@@ -1,4 +1,4 @@
-const port = process.env.POR || 3000
+const port = process.env.PORT || 3000
 
 const http = require('http')
 const app = require('./app')
