@@ -28,8 +28,12 @@ app.set('layout', '../views/layouts/layouts')
 
 // ----- ROUTES -----
 
+// app.get('*', (req, res) => {
+//     res.redirect('/')
+// })
+
 const todoRouter = require('./routes/todoRoute')
-app.use('/todo', todoRouter)
+app.use('/', todoRouter)
 
 app.use(notFound)
 app.use(errorHandler)

@@ -13,24 +13,6 @@ const home = async (req, res) => {
     }
 }
 
-const completePage = async (req, res) => {
-    try {
-        const todos =  await Todo.find({completed : true})
-        res.render('pages/completePage', { day: date.getDate(), todos }) ;
-    } catch (error) {
-        res.status(400).send(error)
-    }
-}
-
-const itemLeft = async (req, res) => {
-    try {
-        const todos =  await Todo.find({completed : false})
-        res.render('pages/itemLeft', { day: date.getDate(), todos }) ;
-    } catch (error) {
-        res.status(400).send(error)
-    }
-}
-
 // CREATE ONE TODO
 const createTodo = async (req, res) => {
     try {
@@ -39,7 +21,7 @@ const createTodo = async (req, res) => {
         })
         const todos =  await todo.save() // sauvegarde dans la BD
         .then((t)=>{
-            res.redirect('/todo')
+            res.redirect('/')
         })
     } catch (error) {
         res.status(400).send(error)
@@ -55,7 +37,7 @@ const deleteTodo = async (req, res) => {
         if(!todo){
             return next(createCustomError(`No todo with id : ${todoID}`, 404))
         }
-        res.redirect('/todo')
+        res.redirect('/')
     } catch (error) {
         res.status(400).send(error)
     }
@@ -72,7 +54,7 @@ const updateTodo =  async (req, res) => {
         if(!todo){
             return next(createCustomError(`No todo with id : ${todoID}`, 404))
         }
-        res.redirect('/todo')
+        res.redirect('/')
     } catch (error) {
         res.status(400).send(error)
     }
@@ -82,8 +64,6 @@ const updateTodo =  async (req, res) => {
 
 module.exports = {
     home,
-    completePage,
-    itemLeft,
     createTodo,
     updateTodo,
     deleteTodo

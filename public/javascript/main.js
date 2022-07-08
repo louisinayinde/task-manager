@@ -28,7 +28,7 @@ img_todos.forEach((img_todo) => {
 
         let todo_id = img_todo.parentElement.parentElement.firstElementChild.textContent
         let form_todo = img_todo.parentElement.parentElement
-        form_todo.action =  `/todo/updateTodo/${todo_id}`
+        form_todo.action =  `/updateTodo/${todo_id}`
 
         img_todo.addEventListener('click', e => {
             img_todo.type = ""
