@@ -9,7 +9,7 @@ const pwd = process.env.MONGO_PWD ;
 
 const db_name = 'todoExpress';
 
-// mongoose
+// mongoose  
 
 const mongoDB = `mongodb+srv://${user}:${pwd}@cluster0.wnd9u.mongodb.net/${db_name}?retryWrites=true&w=majority`
 
